@@ -1,0 +1,21 @@
+{
+  "name": "chat",
+  "version": "0.0.1",
+  "engines": {
+    "node": "0.4",
+    "npm": "1"
+  },
+  "author": "Nathan Matthews",
+  "dependencies": {
+    "coffee-script": "1.2",
+    "express": "2.5",
+    "stitch": "0.3",
+    "hook.io": "0.8",
+    "hook.io-webserver": "0.8",
+    "browserify": "1.8",
+    "dnode": "0.9",
+    "eventemitter2": "0.4",
+    "path": "0.4",
+    "connect": "1.8"
+  }
+}
