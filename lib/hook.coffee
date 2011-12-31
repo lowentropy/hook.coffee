@@ -1,24 +1,25 @@
 dnode = require 'dnode'
-EventEmitter = require('eventemitter2').EventEmitter2
+{EventEmitter2} = require 'eventemitter2'
 
-class exports.Hook extends EventEmitter
+class exports.Hook extends EventEmitter2
 
   constructor: (@options) ->
-    EventEmitter.call @,
+    EventEmitter2.call @,
       delimiter: '::'
       wildcard: true
-
-  connect: ->
+  
+  _client: ->
     @client ?= dnode
       message: (event, data) =>
-        EventEmitter.prototype.emit.call @, event, data
+        EventEmitter2.prototype.emit.call @, event, data
       report: ->
 
-    @client.connect @options.port ? 3000, (@remote, conn) =>
-      clearInterval @reconnectionTimer
-      conn.on 'end', =>
-        @reconnectionTimer = setInterval (=> @connect()), 3000
-      @emit 'ready'
+  connect: ->
+    port = @options.port ? 3000
+    time = @options.reconnectInterval ? 3000
+    @_client().connect port, {reconnect: time}, (@remote) =>
+      @emit 'browser::ready'
+    this
 
   start: -> @connect()
 
