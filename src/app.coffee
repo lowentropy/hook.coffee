@@ -17,4 +17,6 @@ hook.start()
 
 # Start the web server
 hook.on 'webserver::started', ->
+  hook.on 'chat::send', (msg) ->
+    hook.emit 'chat::recv', msg
   app.listen 3000
