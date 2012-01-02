@@ -25,3 +25,4 @@ class exports.Hook extends EventEmitter2
   emit: (event, data) ->
     return if event == 'newListener'
     @remote?.message event, data
+    EventEmitter2.prototype.emit.call @, event, data
