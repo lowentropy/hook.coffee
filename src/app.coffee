@@ -18,4 +18,8 @@ hook.start()
 
 # Start the web server
 hook.on 'webserver::started', ->
+  hook.on 'STDIN', (text) ->
+    hook.emit 'chat::msg',
+      nick: 'STDIN'
+      text: text
   app.listen 3000
