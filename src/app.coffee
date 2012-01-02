@@ -11,7 +11,8 @@ bundle.addEntry "#{__dirname}/../lib/client.coffee"
 app.use bundle
 
 # Start hook.io
-Hook = require('hook.io-webserver').Webserver
+#Hook = require('hook.io-webserver').Webserver
+Hook = require('./webhook').Webhook
 hook = new Hook name: 'server-dude', port: 3001
 hook.start()
 

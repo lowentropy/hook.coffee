@@ -12,7 +12,6 @@ class exports.Hook extends EventEmitter2
     @client ?= dnode
       message: (event, data) =>
         EventEmitter2.prototype.emit.call @, event, data
-      report: ->
 
   connect: ->
     port = @options.port ? 3000
