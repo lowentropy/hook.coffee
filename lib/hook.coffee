@@ -11,7 +11,7 @@ class exports.Hook extends EventEmitter2
   _client: ->
     @client ?= dnode
       message: (event, data) =>
-        EventEmitter2.prototype.emit.call @, event, data
+        EventEmitter2::emit.call @, event, data
 
   connect: ->
     port = @options.port ? 3000
@@ -25,4 +25,4 @@ class exports.Hook extends EventEmitter2
   emit: (event, data) ->
     return if event == 'newListener'
     @remote?.message event, data
-    EventEmitter2.prototype.emit.call @, event, data
+    EventEmitter2::emit.call @, event, data

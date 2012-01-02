@@ -18,13 +18,13 @@ class exports.Webhook extends Hook
   emit: (event, data, callback) ->
     for id, client of @clients
       client.message event, data, callback
-    Hook.prototype.emit.call @, event, data, callback
+    Hook::emit.call @, event, data, callback
   
   _emit_from: (from, event, data, callback) ->
     for id, client of @clients
       continue if id == from
       client.message event, data, callback
-    Hook.prototype.emit.call @, event, data, callback
+    Hook::emit.call @, event, data, callback
   
   _dnode: ->
     dnode (client, conn) =>
