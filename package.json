@@ -1,10 +1,11 @@
 {
-  "name": "chat",
+  "name": "hook.coffee",
   "version": "0.0.1",
   "engines": {
     "node": ">= 0.6.x"
   },
   "author": "Nathan Matthews",
+  "main": "package.js",
   "dependencies": {
     "coffee-script": "1.2.x",
     "hook.io": "0.8.x",
