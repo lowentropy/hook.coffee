@@ -10,7 +10,7 @@ module.exports = class HookServer extends Webhook
     # @app.use connect.static("#{__dirname}/../public")
     # bundle.register '.eco', require('../lib/eco')
     @bundle.require jquery: "#{__dirname}/../node_modules/jquery-browserify"
-    @bundle.addEntry "#{__dirname}/../lib/client.coffee"
+    #@bundle.addEntry "#{__dirname}/../lib/client.coffee"
     @app.use @bundle
     @on 'webserver::started', =>
       @app.listen 3000
@@ -20,3 +20,6 @@ module.exports = class HookServer extends Webhook
   
   register: ->
     @bundle.register.apply @bundle, arguments
+
+  addEntry: ->
+    @bundle.addEntry.apply @bundle, arguments
