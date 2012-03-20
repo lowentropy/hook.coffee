@@ -1,7 +1,7 @@
 # Create http server
-connect = require 'connect'
-app = connect.createServer()
-app.use connect.static("#{__dirname}/../public")
+express = require 'express'
+app = express.createServer()
+app.use express.static("#{__dirname}/../public")
 
 # Add browserify bundle
 bundle = require('browserify')()
