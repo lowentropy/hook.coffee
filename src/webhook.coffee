@@ -10,7 +10,7 @@ class exports.Webhook extends Hook
     @clients = {}
     @_id = 0
     
-    @on 'hook::started', =>
+    @on 'hook.started', =>
       @findPort port: @port, (err, port) =>
         @port = port
         @_start_server()
@@ -37,4 +37,4 @@ class exports.Webhook extends Hook
     web = http.createServer()
     @_dnode().listen web
     web.listen @port, =>
-      @emit 'webserver::started', @port
+      @emit 'webserver.started', @port

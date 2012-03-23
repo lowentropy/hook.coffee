@@ -4,9 +4,7 @@ dnode = require 'dnode'
 class exports.Hook extends EventEmitter2
 
   constructor: (@options) ->
-    EventEmitter2.call @,
-      delimiter: '::'
-      wildcard: true
+    EventEmitter2.call @, wildcard: true
   
   _client: ->
     @client ?= dnode
@@ -17,7 +15,7 @@ class exports.Hook extends EventEmitter2
     port = @options.port ? 3000
     time = @options.reconnectInterval ? 3000
     @_client().connect port, {reconnect: time}, (@remote) =>
-      @emit 'browser::ready'
+      @emit 'browser.ready'
     this
 
   start: -> @connect()

@@ -10,5 +10,5 @@ module.exports = class HookServer extends Webhook
     @app = express.createServer()
     @bundle = require('browserify')(browserify ? {})
     @app.use @bundle
-    @on 'webserver::started', =>
+    @on 'webserver.started', =>
       @app.listen 3000
