@@ -10,7 +10,8 @@ class exports.Webhook extends Hook
     @clients = {}
     @_id = 0
     
-    @on 'hook.started', =>
+    # hook.io forces its delimiter to be '::'
+    @on 'hook::started', =>
       @findPort port: @port, (err, port) =>
         @port = port
         @_start_server()
